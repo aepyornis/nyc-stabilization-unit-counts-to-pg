@@ -132,7 +132,6 @@ def make_query(tablename, row):
 
 
 def handle_field_error(row, key, e):
-    global field_errors
     print(key + " - " + str(row[key]))
     print(e)
     field_errors += 1
@@ -142,7 +141,6 @@ def handle_field_error(row, key, e):
 lookup, headers = sql_type_dir(schema_file)
 
 def insert_row(row, table_name=table_name):
-    global lookup
     for key in row:
         try:
             row[key] = type_cast(key, row[key], lookup)
